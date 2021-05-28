@@ -1,16 +1,11 @@
 {
   "files": {
-    "main.css": "/chat-design/static/css/main.ea1455b2.chunk.css",
+    "main.css": "/chat-design/static/css/main.ec4874b8.chunk.css",
     "main.js": "/chat-design/static/js/main.228fea02.chunk.js",
-    "main.js.map": "/chat-design/static/js/main.228fea02.chunk.js.map",
     "runtime-main.js": "/chat-design/static/js/runtime-main.30ad990f.js",
-    "runtime-main.js.map": "/chat-design/static/js/runtime-main.30ad990f.js.map",
     "static/js/2.57a40660.chunk.js": "/chat-design/static/js/2.57a40660.chunk.js",
-    "static/js/2.57a40660.chunk.js.map": "/chat-design/static/js/2.57a40660.chunk.js.map",
     "static/js/3.c262c9f4.chunk.js": "/chat-design/static/js/3.c262c9f4.chunk.js",
-    "static/js/3.c262c9f4.chunk.js.map": "/chat-design/static/js/3.c262c9f4.chunk.js.map",
     "index.html": "/chat-design/index.html",
-    "static/css/main.ea1455b2.chunk.css.map": "/chat-design/static/css/main.ea1455b2.chunk.css.map",
     "static/js/2.57a40660.chunk.js.LICENSE.txt": "/chat-design/static/js/2.57a40660.chunk.js.LICENSE.txt",
     "static/media/qpien.84eed301.svg": "/chat-design/static/media/qpien.84eed301.svg",
     "static/media/qpien1.79b7228a.svg": "/chat-design/static/media/qpien1.79b7228a.svg",
@@ -19,7 +14,7 @@
   "entrypoints": [
     "static/js/runtime-main.30ad990f.js",
     "static/js/2.57a40660.chunk.js",
-    "static/css/main.ea1455b2.chunk.css",
+    "static/css/main.ec4874b8.chunk.css",
     "static/js/main.228fea02.chunk.js"
   ]
 }
