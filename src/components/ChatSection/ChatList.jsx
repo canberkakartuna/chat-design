@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { ReactComponent as Logo} from '../../assets/qpien1.svg';
 import ChatTable from './ChatTable';
@@ -31,7 +31,7 @@ const NoChat = () => {
 
   const [liveSupport, setLiveSupport] = useState([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     var liveSupport = JSON.parse(localStorage.getItem('liveSupport'));
     setLiveSupport(liveSupport);
   }, [])
