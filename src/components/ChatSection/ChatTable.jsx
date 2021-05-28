@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -27,6 +27,8 @@ const useStyles = makeStyles({
 export default function ChatTable({rows, setLiveSupport}) {
   const classes = useStyles();
 
+  const [textCopyied, setTextCopied] = useState('');
+
   const removeChat = (code) => {
     var links = JSON.parse(localStorage.getItem('liveSupport'));
 
@@ -37,6 +39,17 @@ export default function ChatTable({rows, setLiveSupport}) {
     localStorage.setItem('liveSupport', JSON.stringify(links));
 
     setLiveSupport(links);
+  }
+
+  const copyCodeToClipboard = (code) => {
+    var text = 'code.qpien.com/' + code;
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+    setTextCopied(code);
   }
 
   return (
@@ -59,7 +72,19 @@ export default function ChatTable({rows, setLiveSupport}) {
               <TableCell align="left">{row.brandWebsite}</TableCell>
               <TableCell align="left">code.qpien.com/{row.code}</TableCell>
               <TableCell align="left">
-              <div className={classes.copyLabel}>
+              <div className={classes.copyLabel} onClick={() => copyCodeToClipboard(row.code)}>
+              {
+                  textCopyied === row.code  ? (
+                    <p
+                      style={{
+                        color: '#037DFD',
+                        marginRight: '7px'
+                      }}
+                    >Kopyalandı!</p>
+                  ) : (
+                    null
+                  )
+                }
                 <FileCopyOutlinedIcon style={{
                   color: '#037DFD'
                 }}/>
