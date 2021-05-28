@@ -24,9 +24,20 @@ const useStyles = makeStyles({
   },
 });
 
-
-export default function ChatTable({rows}) {
+export default function ChatTable({rows, setLiveSupport}) {
   const classes = useStyles();
+
+  const removeChat = (code) => {
+    var links = JSON.parse(localStorage.getItem('liveSupport'));
+
+    var foundIndex = links.findIndex(link => link.code === code);
+
+    links.splice(foundIndex, 1);
+
+    localStorage.setItem('liveSupport', JSON.stringify(links));
+
+    setLiveSupport(links);
+  }
 
   return (
     <TableContainer component={Paper}>
@@ -40,7 +51,7 @@ export default function ChatTable({rows}) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {(rows || []).map((row) => (
             <TableRow key={row.code}>
               <TableCell component="th" scope="row">
                 {row.brandName}
@@ -68,7 +79,7 @@ export default function ChatTable({rows}) {
                   color: '#fff',
                   marginLeft: '20px',
                   textTransform: 'none'
-                }}>
+                }} onClick={(e) => removeChat(row.code)}>
                   Kaldır
                 </Button>
               </div>

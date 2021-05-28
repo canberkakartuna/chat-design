@@ -29,19 +29,18 @@ const useStyles = makeStyles((theme) => ({
 const NoChat = () => {
   const classes = useStyles();
 
-  const [liveSupport, setLiveSupport] = useState();
+  const [liveSupport, setLiveSupport] = useState([]);
 
   useEffect(() => {
-    var liveSupport = localStorage.getItem('liveSupport');
-    console.log(liveSupport);
-    setLiveSupport(JSON.parse(liveSupport));
+    var liveSupport = JSON.parse(localStorage.getItem('liveSupport'));
+    setLiveSupport(liveSupport);
   }, [])
 
   return(
     <div className={classes.noChatContainer}>
       {
-        liveSupport ? (
-         <ChatTable rows={liveSupport} />
+        (liveSupport && liveSupport.length !== 0) ? (
+         <ChatTable rows={liveSupport} setLiveSupport={setLiveSupport}/>
         ) : (
           <div>
             <div className={classes.centerLogo}>
